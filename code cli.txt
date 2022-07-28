@@ -1,0 +1,268 @@
+Microsoft Windows [Version 10.0.22000.739]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\erisa>mongo
+MongoDB shell version v5.0.9
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("696d75c0-9f1f-4d01-a3ee-df498128411d") }
+MongoDB server version: 5.0.9
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-06-28T11:41:11.184+07:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin       0.000GB
+config      0.000GB
+local       0.000GB
+restful_db  0.000GB
+> use restful_db
+switched to db restful_db
+> show collections
+products
+> db.products.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+> db.products.insertOne({"title": "product 1", price: 2000})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("62babd3b224842104c60378b")
+}
+> db.products.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+> exit
+bye
+
+C:\Users\erisa>mongo
+MongoDB shell version v5.0.9
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("03a8ed9f-869d-4fdf-a79f-ef32eeafd518") }
+MongoDB server version: 5.0.9
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-06-28T11:41:11.184+07:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin       0.000GB
+config      0.000GB
+local       0.000GB
+restful_db  0.000GB
+> use restful_db
+switched to db restful_db
+> db.products.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+> db.resftul_db.products.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+> db.restful_db.products.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+> db.restful_db.products.find
+function(query, fields, limit, skip, batchSize, options) {
+    var cursor = new DBQuery(this._mongo,
+                             this._db,
+                             this,
+                             this._fullName,
+                             this._massageObject(query),
+                             fields,
+                             limit,
+                             skip,
+                             batchSize,
+                             options || this.getQueryOptions());
+
+    {
+        const session = this.getDB().getSession();
+
+        const readPreference = session._getSessionAwareClient().getReadPreference(session);
+        if (readPreference !== null) {
+            cursor.readPref(readPreference.mode, readPreference.tags);
+        }
+
+        const client = session._getSessionAwareClient();
+        const readConcern = client.getReadConcern(session);
+        if (readConcern !== null &&
+            client.canUseReadConcern(session, cursor._convertToCommand(true))) {
+            cursor.readConcern(readConcern.level);
+        }
+    }
+
+    return cursor;
+}
+>
